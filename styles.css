@@ -1,0 +1,13 @@
+body{
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+header{
+
+    background-color: white;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 25px;
+    text-align: center;
+}
