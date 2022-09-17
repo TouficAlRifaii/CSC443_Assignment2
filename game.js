@@ -6,7 +6,7 @@ window.onload = () => {
   const statusH2 = document.getElementById("status");
   function losing() {
     for (let i = 0; i < boundaries.length; i++) {
-      boundaries[i].style.backgroundColor = "red";
+      boundaries[i].style.backgroundColor = "#ff8888";
     }
     statusH2.innerHTML = "You Lose!";
     gameState = 0;
@@ -15,6 +15,10 @@ window.onload = () => {
   startElement.addEventListener("mouseenter", () => {
     if (gameState == 0) {
       gameState = 1;
+      for (let i = 0; i < boundaries.length; i++) {
+        boundaries[i].style.backgroundColor = "#eeeeee";
+      }
+      statusH2.innerHTML = "Reach The end without touching the walls!";
       console.log(gameState);
       for (let i = 0; i < boundaries.length; i++) {
         boundaries[i].addEventListener("mouseenter", () => {
