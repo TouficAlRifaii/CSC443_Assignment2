@@ -2,15 +2,22 @@ window.onload = () => {
   const startElement = document.getElementById("start");
   let gameState = 0;
   const boundaries = document.getElementsByClassName("boundary");
-
+  const endElement = document.getElementById("end");
   const statusH2 = document.getElementById("status");
   function losing() {
-    for (let i = 0; i < boundaries.length; i++) {
-      boundaries[i].style.backgroundColor = "#ff8888";
+    if (gameState == 1) {
+      for (let i = 0; i < boundaries.length; i++) {
+        boundaries[i].style.backgroundColor = "#ff8888";
+      }
+      statusH2.innerHTML = "You Lose!";
+      gameState = 0;
     }
-    statusH2.innerHTML = "You Lose!";
-    gameState = 0;
-    
+  }
+  function winning() {
+    if (gameState == 1) {
+      statusH2.innerHTML = "You Win!";
+      gameState = 0;
+    }
   }
   startElement.addEventListener("mouseenter", () => {
     if (gameState == 0) {
@@ -21,16 +28,12 @@ window.onload = () => {
       statusH2.innerHTML = "Reach The end without touching the walls!";
       console.log(gameState);
       for (let i = 0; i < boundaries.length; i++) {
-        boundaries[i].addEventListener("mouseenter", () => {
-          if (gameState == 1) {
-            losing();
-            console.log(gameState);
-          }
-        });
+        boundaries[i].addEventListener("mouseenter", () => losing());
       }
+      endElement.addEventListener("mouseenter", () => winning());
     }
   });
-  startElement.addEventListener("click" , () =>{
+  startElement.addEventListener("click", () => {
     location.reload();
-  })
+  });
 };
