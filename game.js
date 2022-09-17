@@ -1,10 +1,14 @@
 window.onload = () => {
   const startElement = document.getElementById("start");
-  let gameState = 0;
   const boundaries = document.getElementsByClassName("boundary");
   const endElement = document.getElementById("end");
   const statusH2 = document.getElementById("status");
   const game = document.getElementById("game");
+  const scoreElement = document.getElementById("score");
+
+  let gameState = 0;
+  let score = 0;
+  scoreElement.innerHTML= "Score: " + score;
   function losing() {
     if (gameState == 1) {
       for (let i = 0; i < boundaries.length; i++) {
@@ -12,12 +16,17 @@ window.onload = () => {
       }
       statusH2.innerHTML = "You Lose!";
       gameState = 0;
+      score -= 10;
+      scoreElement.innerHTML= "Score: " + score;
+
     }
   }
   function winning() {
     if (gameState == 1) {
       statusH2.innerHTML = "You Win!";
       gameState = 0;
+      score += 5;
+      scoreElement.innerHTML= "Score: " + score;
     }
   }
   function preventCheating(){
