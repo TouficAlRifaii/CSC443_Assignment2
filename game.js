@@ -61,6 +61,8 @@ window.onload = () => {
     }
   });
   startElement.addEventListener("click", () => {
+    user["score"] = 0;
+    localStorage.setItem(user["username"], JSON.stringify(user));
     location.reload();
   });
 };
