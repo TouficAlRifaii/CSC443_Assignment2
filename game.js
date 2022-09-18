@@ -5,9 +5,11 @@ window.onload = () => {
   const statusH2 = document.getElementById("status");
   const game = document.getElementById("game");
   const scoreElement = document.getElementById("score");
-
+  const user = JSON.parse(
+    localStorage.getItem(localStorage.getItem("currentUser"))
+  );
   let gameState = 0;
-  let score = 0;
+  let score = user["score"];
   scoreElement.innerHTML = "Score: " + score;
   function losing() {
     if (gameState == 1) {
@@ -18,6 +20,8 @@ window.onload = () => {
       gameState = 0;
       score -= 10;
       scoreElement.innerHTML = "Score: " + score;
+      user["score"] = score;
+      localStorage.setItem(user["username"], JSON.stringify(user));
     }
   }
   function winning() {
@@ -26,6 +30,8 @@ window.onload = () => {
       gameState = 0;
       score += 5;
       scoreElement.innerHTML = "Score: " + score;
+      user["score"] = score;
+      localStorage.setItem(user["username"], JSON.stringify(user));
     }
   }
   function preventCheating() {

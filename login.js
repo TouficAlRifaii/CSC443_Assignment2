@@ -20,7 +20,6 @@ window.onload = () => {
         }
         else{
             h3.innerHTML = "Wrong Password";
-
         }
 
     }
