@@ -4,10 +4,18 @@ window.onload = () => {
   const submitButton = document.getElementById("submit");
   const storage = window.localStorage ; 
   const h3 = document.getElementById("DoesNot");
+  let flag = false;
   submitButton.addEventListener("click" , ()=>{
 
     const username = usernameField.value;
+    if (username == ""){
+      flag = true;
+    }
     const password = passwordField.value;
+    if (password == ""){
+      flag = true;
+    }
+    if (flag == false){
     const user = JSON.parse(storage.getItem(username))
     if( user == null){
         h3.innerHTML = "User does not exist";
@@ -23,6 +31,10 @@ window.onload = () => {
         }
 
     }
+  }
+  else {
+    h3.innerHTML = "Both inputs are required";
+  }
 
   })
 };
