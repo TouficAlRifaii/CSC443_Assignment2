@@ -41,7 +41,7 @@ if (localStorage.getItem("currentUser")== "null") {
   };
 } else
 {
-  location.assign("gamee.html");
+  location.assign("game.html");
 
 }
 
