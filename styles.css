@@ -11,3 +11,19 @@ header{
     padding: 25px;
     text-align: center;
 }
+div.whole{
+    background-color: #E5E5E5;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 0;
+    
+}
+.form {
+    padding-left: 10px;
+}
+
+button{
+    margin-left: 35%;
+    width: 120px;
+    height: 30px;
+}
